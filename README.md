@@ -1,4 +1,4 @@
-<<<<<<< HEAD
+
 # WeatherApp
 
 A distributed Weather Application built using **JavaFX** for the client interface and **Java RMI** (Remote Method Invocation) for client-server communication. The application fetches real-time weather data and forecasts from the **OpenWeatherMap API**.
@@ -50,3 +50,4 @@ java org.example.weatherapp.client.ClientLauncher
 # WeatherAppRMI
 This project is Weather App RMI using client-server and the client calls method from server through its given IP
 >>>>>>> ea5310db8ee5a9fa75ca44ddbc8fce15b6a1ff08
+
