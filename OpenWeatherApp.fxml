@@ -1,0 +1,103 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.geometry.Insets?>
+<?import javafx.scene.control.Button?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.control.TextField?>
+<?import javafx.scene.image.ImageView?>
+<?import javafx.scene.layout.ColumnConstraints?>
+<?import javafx.scene.layout.GridPane?>
+<?import javafx.scene.layout.HBox?>
+<?import javafx.scene.layout.RowConstraints?>
+<?import javafx.scene.layout.StackPane?>
+<?import javafx.scene.layout.VBox?>
+<?import javafx.scene.text.Font?>
+
+<StackPane alignment="CENTER" prefHeight="600.0" prefWidth="950.0" styleClass="root" xmlns="http://javafx.com/javafx/21.0.6" xmlns:fx="http://javafx.com/fxml/1" fx:controller="org.example.weatherapp.client.FXMLDocumentController">
+    <children>
+        <StackPane fx:id="backgroundAnimationPane" />
+        <VBox alignment="TOP_CENTER" maxHeight="550.0" maxWidth="900.0" styleClass="screen">
+            <padding>
+                <Insets bottom="20.0" left="20.0" right="20.0" top="20.0" />
+            </padding>
+            <children>
+                <HBox alignment="CENTER" spacing="10.0" styleClass="search">
+                    <children>
+                        <TextField fx:id="cityField" onAction="#searchWeather" promptText="Enter City Name" />
+                        <Button onAction="#searchWeather" styleClass="search-button" text="🔍">
+                            <font>
+                                <Font size="14.0" />
+                            </font>
+                        </Button>
+                    </children>
+                </HBox>
+                <VBox styleClass="card">
+                    <padding>
+                        <Insets bottom="25.0" left="25.0" right="25.0" top="25.0" />
+                    </padding>
+                    <children>
+                        <HBox alignment="CENTER_LEFT" spacing="20.0">
+                            <children>
+                                <VBox spacing="5.0">
+                                    <children>
+                                        <Label fx:id="cityLabel" styleClass="city" text="City Name" />
+                                        <Label fx:id="temperatureLabel" styleClass="temp" text="--°C" />
+                                        <Label fx:id="descriptionLabel" styleClass="desc" text="Weather Description" />
+                                        <HBox spacing="15.0" styleClass="details-row">
+                                            <children>
+                                                <Label fx:id="humidityLabel" text="Humidity: --%" />
+                                                <Label fx:id="windLabel" text="Wind: -- m/s" />
+                                                <Label fx:id="precipLabel" text="Precip: --" />
+                                            </children>
+                                            <VBox.margin>
+                                                <Insets top="10.0" />
+                                            </VBox.margin>
+                                        </HBox>
+                                    </children>
+                                </VBox>
+                                <VBox alignment="CENTER_RIGHT" HBox.hgrow="ALWAYS">
+                                    <children>
+                                        <ImageView fx:id="weatherIcon" fitHeight="120.0" fitWidth="120.0" pickOnBounds="true" preserveRatio="true" />
+                                        <StackPane fx:id="animationPane" prefHeight="1.0" />
+                                    </children>
+                                </VBox>
+                            </children>
+                        </HBox>
+                    </children>
+                </VBox>
+                <HBox fx:id="forecastContainer" alignment="CENTER" spacing="10.0" styleClass="forecast">
+                    <VBox.margin>
+                        <Insets top="20.0" />
+                    </VBox.margin>
+                </HBox>
+                <VBox fx:id="forecastDetailPane" alignment="CENTER_LEFT" managed="false" spacing="5.0" styleClass="details-pane" visible="false">
+                    <VBox.margin>
+                        <Insets top="15.0" />
+                    </VBox.margin>
+                    <children>
+                        <Label fx:id="detailDayLabel" styleClass="details-pane-title" />
+                        <GridPane hgap="10.0" vgap="5.0">
+                            <columnConstraints>
+                                <ColumnConstraints hgrow="SOMETIMES" minWidth="10.0" />
+                                <ColumnConstraints hgrow="SOMETIMES" minWidth="10.0" />
+                            </columnConstraints>
+                            <rowConstraints>
+                                <RowConstraints minHeight="10.0" vgrow="SOMETIMES" />
+                                <RowConstraints minHeight="10.0" vgrow="SOMETIMES" />
+                                <RowConstraints minHeight="10.0" vgrow="SOMETIMES" />
+                            </rowConstraints>
+                            <children>
+                                <Label fx:id="detailTempMinMaxLabel" styleClass="detail-temp" text="Min/Max Temp: --/--°C" />
+                                <Label fx:id="detailFeelsLikeLabel" styleClass="detail-feels" text="Feels Like: --°C" GridPane.columnIndex="1" />
+                                <Label fx:id="detailPressureLabel" styleClass="detail-pressure" text="Pressure: -- hPa" GridPane.rowIndex="1" />
+                                <Label fx:id="detailCloudinessLabel" styleClass="detail-cloud" text="Cloudiness: --%" GridPane.columnIndex="1" GridPane.rowIndex="1" />
+                                <Label fx:id="detailWindDirectionLabel" styleClass="detail-wind" text="Wind Direction: --°" GridPane.rowIndex="2" />
+                                <Label fx:id="detailPopLabel" styleClass="detail-pop" text="Precip. Chance: --%" GridPane.columnIndex="1" GridPane.rowIndex="2" />
+                            </children>
+                        </GridPane>
+                    </children>
+                </VBox>
+            </children>
+        </VBox>
+    </children>
+</StackPane>
